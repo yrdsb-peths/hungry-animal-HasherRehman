@@ -9,7 +9,23 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Elephant extends Actor
 {
     GreenfootSound elephantSound = new GreenfootSound("elephantcub.mp3");
+    GreenfootImage idleRight = new GreenfootImage("images/elephant_idle/idle0.png");
     
+    // Direction the elephant is facing
+    String facing = "right";
+    SimpleTimer animationTimer = new SimpleTimer();
+    public Elephant()
+    {
+        setImage(idleRight);
+        idleRight.scale(75, 75);
+        if(animationTimer.millisElapsed() < 50)
+        {
+            return;
+        }
+        animationTimer.mark();
+    }
+    
+
     public void act()
     {
         if(Greenfoot.isKeyDown("d"))
